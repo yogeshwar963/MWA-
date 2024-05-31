@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="techConferenceApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Conference 2024</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+  </head>
+  <body ng-controller="MainController">
+    <header>
+      <h1>Welcome to Tech Conference 2024</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#speakers">Speakers</a></li>
+          <li><a href="#register">Register</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="about">
+      <h2>About the Event</h2>
+      <p>
+        Join us for the Tech Conference 2024, where industry leaders discuss the
+        latest trends in technology.
+      </p>
+    </section>
+
+    <section id="schedule">
+      <h2>Schedule</h2>
+      <div ng-repeat="session in schedule">
+        <h3>{{session.title}}</h3>
+        <p>{{session.time}}</p>
+        <p>Speaker: {{session.speaker}}</p>
+      </div>
+    </section>
+
+    <section id="speakers">
+      <h2>Speakers</h2>
+      <div ng-repeat="speaker in speakers">
+        <h3>{{speaker.name}}</h3>
+        <p>{{speaker.bio}}</p>
+      </div>
+    </section>
+
+    <section id="register">
+      <h2>Register</h2>
+      <form ng-submit="register()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" ng-model="registration.name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" ng-model="registration.email" required />
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Tech Conference. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
